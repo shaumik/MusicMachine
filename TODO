@@ -1,0 +1,3 @@
+npm install mongo
+use gridfs to store the music
+step up the routes and apps
