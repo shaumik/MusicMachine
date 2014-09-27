@@ -11,11 +11,11 @@ var mongodb = require('mongodb');
 var db;
 mongodb.MongoClient.connect("mongodb://localhost:27017/musicDB",function(error,data){
 	//console.log("d:",data);
-	if(error){
+	if (error) {
 		console.log(error)
-	}else{
+	} else {
 		db = data;
-		console.log("database: ",db);
+		//console.log("database: ",db);
 	}
 });	
 
