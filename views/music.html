@@ -1,14 +1,143 @@
-<html>
+<!-- <html>
 	<head>
 	</head>
 	<body>
-		<h1> Download Music</h1>
+		<h1>Music Machine</h1>
 		<form action="/music_search" method="post">
 			<fieldset>
-				<label for="music"> Music:</label>
+				<label for="music">What do you want to listen to?</label>
+				</br>
 				<input type="text" id="music" name="music" />
+				</br>
 				<input type="submit" />
 			</fieldset>		
 		</form>
 	</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Jerry Lung</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../public/stylesheets/bootstrap.css" rel="stylesheet">
+
+
+
+    <!-- Custom styles for this template -->
+    <link href="../public/stylesheets/cover.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <!-- <h3 class="masthead-brand">Music Machine!</h3> -->
+              <ul class="nav masthead-nav">
+                <!-- <li class="active"><a href="#">here.</a></li>
+                <li><a href="#">coding.</a></li>
+                <li><a href="#">filmography.</a></li> -->
+                <!-- <li><a href="#">contact.</a></li> -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <!-- <div class="circles"><img src="resources/dinojerr.jpg" alt="" width="250px" height="250px" id="profilePic" /></div> -->
+            <h1 class="cover-heading">Music Machine</h1>
+            <p class="lead">What would you like to listen to today?</p>
+            <p class="lead">
+              <!-- <a href="resources/resume_tech_1-14t.pdf" class="btn btn-lg btn-default" onmouseover="changePic()" onmouseout="normalPic()">Resume</a> -->
+	            <form action="/music_search" method="post">
+					<fieldset>
+						<!-- <label for="music">Songs</label> -->
+						</br>
+						<input type="text" id="music" name="music" placeholder="ex. Justin Bieber Baby, Beethoven's 5th, hamster song" />
+						</br>
+						<input type="submit" value="Search" id="btn-submit" class="btn btn-lg btn-default" />
+					</fieldset>		
+				</form>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <!-- TODO: Remove -->
+              <!-- <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p> -->
+              <!-- <p>Connect with me at <strong>jerry.lung</strong> @ <strong>berkeley</strong> dot <strong>edu</strong> and on <a href="http://www.linkedin.com/in/jerrylung">LinkedIn</a>.</p>
+              <p>Site still under construction!</p> -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+            <script type="text/javascript">
+            // function changePic() {
+            //   document.getElementById("profilePic").src = "resources/kubrick.jpg";
+            // }
+
+            // function normalPic() {
+            //   document.getElementById("profilePic").src = "resources/dinojerr.jpg";
+            // }
+
+            var x;
+
+			function changecolors() {
+			    x = 1;
+			    setInterval(change, 500);
+			}
+
+			function change() {
+			    if (x === 1) {
+			        color = '#00E5EE'; /*turquoise*/
+			        x = 2;
+			    } else {
+			        color = '#EE2C2C';  /*firebrick*/
+			        x = 1;
+			    }
+
+			    document.body.style.background = color;
+			}
+
+			// changecolors();
+            </script>
+  </body>
 </html>
