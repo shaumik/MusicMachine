@@ -33,15 +33,16 @@ function youtubeAPIQuery(search, callback) {
 			console.log(json);
 			var html = JSON.parse(json);
 			var items = html['items'];
-			console.log('items: ', items);
-			var music_code = items[0]['id']['videoId'];
-			var title = items[0]["snippet"]["title"];
+			console.log('items: ', items[1]);
+			var music_code = items[1]['id']['videoId'];
+			var title = items[1]["snippet"]["title"];
 			
 			console.log(title);
 			console.log(music_code);
 			
-			
-			callback(music_code,title);
+			if(music_code && title){
+				callback(music_code,title);
+			}
 			
 		});
 		
