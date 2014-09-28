@@ -108,6 +108,14 @@
 			}
 
 			// changecolors();
+
+			var bg = "";
+			var colors = ["#00E5EE", "#EE2C2C", "#458B00"];
+			var i = Math.floor((Math.random() * 100) % 3);
+			bg = colors[i];
+			console.log("colloooooors ", bg, i);
+			$("body").css("background-color", bg);
             </script>
+
   </body>
 </html>
