@@ -87,34 +87,33 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
             <script type="text/javascript">
-            // function changePic() {
-            //   document.getElementById("profilePic").src = "resources/kubrick.jpg";
-            // }
-
-            // function normalPic() {
-            //   document.getElementById("profilePic").src = "resources/dinojerr.jpg";
-            // }
 
             var x;
 
-			function changecolors() {
-			    x = 1;
-			    setInterval(change, 500);
-			}
+      			function changecolors() {
+      			    x = 1;
+      			    setInterval(change, 500);
+      			}
 
-			function change() {
-			    if (x === 1) {
-			        color = '#00E5EE'; /*turquoise*/
-			        x = 2;
-			    } else {
-			        color = '#EE2C2C';  /*firebrick*/
-			        x = 1;
-			    }
+      			function change() {
+      			    if (x === 1) {
+      			        color = '#00E5EE'; /*turquoise*/
+      			        x = 2;
+      			    } else {
+      			        color = '#EE2C2C';  /*firebrick*/
+      			        x = 1;
+      			    }
 
-			    document.body.style.background = color;
-			}
+      			    document.body.style.background = color;
+      			}
 
-			// changecolors();
+      			// changecolors();
+            </script>
+            
+            <script>
+            // pass this in from index.js
+            // var new_url = query_string + ".mp3";
+            // doc.getElementById("downloader").href = new_url;
             </script>
   </body>
 </html>
