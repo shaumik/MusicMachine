@@ -28,7 +28,8 @@ a:hover {
 html, body {
   height: 100%;
   background-color: #00E5EE; /*turquoise*/
-  background-color: #EE2C2C;  /*firebrick*/
+ /* background-color: #EE2C2C;  /*firebrick*/*/
+  /*background-color: #458B00; /*chartreuse*/*/
 }
 
 body {
@@ -133,11 +134,20 @@ body {
   background:url(resources/dinojerr.jpg) no-repeat;
 }
 
+#downloader {
+  color: black;
+  margin-top: 250px;
+}
 
 #btn-submit {
   color: black;
   margin-top: 25px;
   font-family: SteelfishLtRegular,arial,sans-serif;
+}
+
+.big-words {
+  font-size: 25px;
+  font-family: Georgia;
 }
 
 /*
