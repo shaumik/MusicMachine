@@ -9,14 +9,17 @@ var $ = require('jquery')(jsdom.jsdom().createWindow())
 // var youtubeAPIKey = nconf.get('youtubeAPIKey');
 
 //https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=AIzaSyDQx8D-u1LCSnHMMDWHF_CQcFUkhYVjNa8&part=snippet,contentDetails,statistics,status
-
+//&part=snippet,contentDetails,statistics,status
 //https://www.googleapis.com/youtube/v3/search?part=id&q=no+game+no+life&key={YOUR_API_KEY}
 
 var youtubeAPIKey = "AIzaSyDQx8D-u1LCSnHMMDWHF_CQcFUkhYVjNa8";
 
 function youtubeAPIQuery(search, callback) {
 	//console.log('API Key:',youtubeAPIKey);
-	var url = "https://www.googleapis.com/youtube/v3/search?part=id&q=" + search + "&key=" + youtubeAPIKey;
+	var url = "https://www.googleapis.com/youtube/v3/search?part=id,snippet&q=" 
+				+ search + "&key=" 
+				+ youtubeAPIKey;
+				
 	console.log('url ',url);
 	json = ""
 	https.get(url, function(response) {
@@ -27,10 +30,18 @@ function youtubeAPIQuery(search, callback) {
 		});
 		
 		response.on('end', function(){
-			//console.log("full json object:", JSON.parse(html));
-			var music_code = parseResponse(JSON.parse(json));
+			console.log(json);
+			var html = JSON.parse(json);
+			var items = html['items'];
+			console.log('items: ', items);
+			var music_code = items[0]['id']['videoId'];
+			var title = items[0]["snippet"]["title"];
+			
+			console.log(title);
 			console.log(music_code);
-			callback(music_code);
+			
+			
+			callback(music_code,title);
 			
 		});
 		
@@ -39,16 +50,6 @@ function youtubeAPIQuery(search, callback) {
 		});
 }
 
-function parseResponse(html){
-	//console.log('html: ',html);
-	//TODO: check for 400 or 404 or any other error
-	var items = html['items'];
-	//console.log('items: ', items);
-	var video_id = items[0]['id']['videoId'];
-	console.log("video id", video_id)
-	return video_id;
-	//console.log(video_id);
-}
 
 //youtubeAPIQuery('no game no life');
 module.exports = youtubeAPIQuery
