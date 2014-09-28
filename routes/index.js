@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var query = require('../musicdl_logic/musicQueryAPI');
-
+var ytdl = require('ytdl-core');
+var fs = require('fs');
 /* GET home page. */
 router.get('/', function(request, response) {
   response.render('music.html', { title: 'Music Download' });
@@ -10,11 +11,12 @@ router.get('/', function(request, response) {
 
 router.post('/music_search',function(request, response){
 	var query_request = request.body.music;	
-	query(query_request + "+album", function(music_code){
-		response.setHeader("Content-Type", "text/html");
-		response.writeHead(200, {"Content-Type": "text/plain"});
-		response.write(music_code);
-		response.end();
+	query(query_request, function(music_code){
+		//response.setHeader("Content-Type", "text/html");
+		//response.writeHead(200, {"Content-Type": "text/plain"});
+		//response.write(music_code);
+		//response.end();
+		ytdl("http://www.youtube.com/watch?v=" + music_code).pipe(fs.createWriteStream("test.flv"));
 	});
 	// response.setHeader("Content-Type", "text/html");
 	// response.writeHead(200, {"Content-Type": "text/plain"});
