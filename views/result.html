@@ -11,10 +11,10 @@
     <title>Music Machine: Your Download, Here</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../public/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="stylesheets/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../public/stylesheets/cover.css" rel="stylesheet">
+    <link href="stylesheets/cover.css" rel="stylesheet">
 
   </head>
 
@@ -49,7 +49,7 @@
 						</br>
 						<!-- <input type="text" id="music" name="music" placeholder="Your file download name here" /> -->
             <!-- <span class="big-words">" </span>Your file download...<span class="big-words"> "</span> -->
-            <span style="font-style:italic; font-size:25px;">Your file download name.</span>
+            <span style="font-style:italic; font-size:25px;" id="filename">Your file download name.</span>
 						</br>
             <!-- <form>
             <a href="../corgi.mp4" value="Download" download="corgi.mp4" class="btn btn-lg btn-default"></a>
@@ -57,8 +57,8 @@
           <!-- <form action="../corgi.mp4" download="corgi.mp4">
             <input type="submit" value="Download" download="corgi.mp4" id="downloader">
           </form> -->
-          <a href="../corgi.mp4" class="btn btn-lg btn-default" id="downloader" download="corgi.mp4" style="margin-left:20px;">Download</a>
-          <a href="music.html" class="btn btn-lg btn-default" id="btn-submit">Again</a>
+          <a href="../output_music/corgi.mp4" class="btn btn-lg btn-default" id="downloader" download="corgi.mp4" style="margin-left:20px;">Download</a>
+          <a href="/" class="btn btn-lg btn-default" id="btn-submit">Again</a>
 					</fieldset>		
             </p>
           </div>
@@ -108,12 +108,14 @@
       			}
 
       			// changecolors();
-            </script>
             
-            <script>
-            // pass this in from index.js
-            // var new_url = query_string + ".mp3";
-            // doc.getElementById("downloader").href = new_url;
+              // pass this in from index.js
+              var titlez = <%- JSON.stringify(titles) %>;
+              var new_url = <%- JSON.stringify(query_strings) %> + ".mp3";
+              console.log("dasiudhaisdhsahdosid " + titlez);
+              document.getElementById("filename").innerHTML = titlez;
+              document.getElementById("downloader").href = "output_music/" + new_url;
+              document.getElementById("downloader").download = new_url;
             </script>
   </body>
 </html>

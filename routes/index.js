@@ -4,10 +4,15 @@ var query = require('../musicdl_logic/musicQueryAPI');
 var ytdl = require('ytdl-core');
 var fs = require('fs');
 /* GET home page. */
+var title6 = "";
+
 router.get('/', function(request, response) {
   response.render('music.html', { title: 'Music Download' });
 });
 
+// router.get("/" + title6 + ".mp3", function(request, response) {
+//   response.render('music.html', { title: 'Music Download' });
+// });
 
 router.post('/music_search',function(request, response){
 	var query_request = request.body.music;	
@@ -16,9 +21,11 @@ router.post('/music_search',function(request, response){
 		//response.writeHead(200, {"Content-Type": "text/plain"});
 		//response.write(music_code);
 		//response.end();
-		
+		title6 = title;
 		console.log("TITLE", title);
-		ytdl("http://www.youtube.com/watch?v=" + music_code).pipe(fs.createWriteStream("output_music/" + query_request + ".mp3"));
+		ytdl("http://www.youtube.com/watch?v=" + music_code).pipe(fs.createWriteStream("public/output_music/" + query_request + ".mp3")).on("close", function() {
+			response.render('result.html', { titles : title6, query_strings : query_request});
+		});
 	});
 	// response.setHeader("Content-Type", "text/html");
 	// response.writeHead(200, {"Content-Type": "text/plain"});
@@ -33,6 +40,7 @@ router.post('/music_search',function(request, response){
 	// 		console.log("successfully stored data");
 	// 	}
 	// });	
+	
 });
 
 module.exports = router;
