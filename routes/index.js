@@ -11,12 +11,13 @@ router.get('/', function(request, response) {
 
 router.post('/music_search',function(request, response){
 	var query_request = request.body.music;	
-	query(query_request, function(music_code){
+	query(query_request, function(music_code,title){
 		//response.setHeader("Content-Type", "text/html");
 		//response.writeHead(200, {"Content-Type": "text/plain"});
 		//response.write(music_code);
 		//response.end();
-		ytdl("http://www.youtube.com/watch?v=" + music_code).pipe(fs.createWriteStream("test.flv"));
+		console.log("TITLE", title);
+		ytdl("http://www.youtube.com/watch?v=" + music_code).pipe(fs.createWriteStream("output_music/" + query_request + ".mp3"));
 	});
 	// response.setHeader("Content-Type", "text/html");
 	// response.writeHead(200, {"Content-Type": "text/plain"});
