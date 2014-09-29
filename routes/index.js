@@ -10,9 +10,7 @@ router.get('/', function(request, response) {
   response.render('music.html', { title: 'Music Download' });
 });
 
-// router.get("/" + title6 + ".mp3", function(request, response) {
-//   response.render('music.html', { title: 'Music Download' });
-// });
+
 
 router.post('/music_search',function(request, response){
 	var query_request = request.body.music;	
@@ -23,13 +21,17 @@ router.post('/music_search',function(request, response){
 			response.render('result.html', { titles : title6, query_strings : query_request});
 		});
 		if(request.db){
-			var db = request.db 
-			var collection = db.collection('musicCollection').insert({"code":music_code},function(error,doc){
-				if(error){
-					console.log(error);
-				}else{
-					console.log("Successfully stored data");
-				}
+			var db = request.db
+			var date = new Date();
+			var collection = db.collection('musicCollection').insert(
+				{"code":music_code,
+				 "title":title,
+				 "date": date },function(error,doc){
+					if(error){
+						console.log(error);
+					}else{
+						console.log("Successfully stored data");
+					}
 			});
 		}
 	});
