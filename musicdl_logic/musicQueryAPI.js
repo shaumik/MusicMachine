@@ -12,7 +12,7 @@ var $ = require('jquery')(jsdom.jsdom().createWindow())
 //&part=snippet,contentDetails,statistics,status
 //https://www.googleapis.com/youtube/v3/search?part=id&q=no+game+no+life&key={YOUR_API_KEY}
 
-var youtubeAPIKey = "AIzaSyDQx8D-u1LCSnHMMDWHF_CQcFUkhYVjNa8";
+var youtubeAPIKey = "";
 
 function youtubeAPIQuery(search, callback) {
 	//console.log('API Key:',youtubeAPIKey);
