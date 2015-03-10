@@ -1,7 +1,7 @@
 var https = require('https');
 var nconf = require('nconf');
 var jsdom = require('jsdom-nogyp');
-var $ = require('jquery')(jsdom.jsdom().createWindow())
+//var $ = require('jquery')(jsdom.jsdom().createWindow())
 
 /** Getting the Youtube API from the config file **/
 //TODO fix the path for the nconf to get the config lol
@@ -15,7 +15,7 @@ var $ = require('jquery')(jsdom.jsdom().createWindow())
 var youtubeAPIKey = process.env.youtubeKey||"";
 
 function youtubeAPIQuery(search, callback) {
-	//console.log('API Key:',youtubeAPIKey);
+	console.log('API Key:',youtubeAPIKey);
 	var url = "https://www.googleapis.com/youtube/v3/search?part=id,snippet&q=" 
 				+ search + "&key=" 
 				+ youtubeAPIKey;
