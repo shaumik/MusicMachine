@@ -20,7 +20,7 @@ router.post('/music_search',function(request, response){
 		ytdl("http://www.youtube.com/watch?v=" + music_code).pipe(fs.createWriteStream("public/output_music/" + query_request + ".mp3")).on("close", function() {
 			response.render('result.html', { titles : title6, query_strings : query_request});
 		});
-		if(request.db){
+		/*if(request.db){
 			var db = request.db
 			var date = new Date();
 			var collection = db.collection('musicCollection').insert(
@@ -33,7 +33,7 @@ router.post('/music_search',function(request, response){
 						console.log("Successfully stored data");
 					}
 			});
-		}
+		}*/
 	});
 	
 });

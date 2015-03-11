@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var mongodb = require('mongodb');
+/*var mongodb = require('mongodb');
 var db;
 mongodb.MongoClient.connect("mongodb://localhost:27017/musicDB",function(error,data){
 	//console.log("d:",data);
@@ -17,7 +17,7 @@ mongodb.MongoClient.connect("mongodb://localhost:27017/musicDB",function(error,d
 		db = data;
 		//console.log("database: ",db);
 	}
-});	
+});	*/
 
 //console.log("database: ",db);
 var app = express();
@@ -37,10 +37,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(function(request,response,next){
+/*app.use(function(request,response,next){
 	request.db = db;
 	next();
-});
+});*/
 
 
 app.use('/', routes);

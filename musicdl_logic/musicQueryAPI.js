@@ -1,6 +1,6 @@
 var https = require('https');
-var nconf = require('nconf');
-var jsdom = require('jsdom-nogyp');
+//var nconf = require('nconf');
+//var jsdom = require('jsdom-nogyp');
 //var $ = require('jquery')(jsdom.jsdom().createWindow())
 
 /** Getting the Youtube API from the config file **/
