@@ -1,18 +1,19 @@
 var https = require('https');
-//var nconf = require('nconf');
+var nconf = require('nconf');
 //var jsdom = require('jsdom-nogyp');
 //var $ = require('jquery')(jsdom.jsdom().createWindow())
 
 /** Getting the Youtube API from the config file **/
 //TODO fix the path for the nconf to get the config lol
-// nconf.argv().env().file({file: '/home/shaumik/Programming/musicdl/musicdl/musicdl_logic/config.json'});
+console.log(__dirname +'config.json');
+nconf.argv().env().file({file: __dirname +'/config.json'});
 // var youtubeAPIKey = nconf.get('youtubeAPIKey');
 
 //https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=AIzaSyDQx8D-u1LCSnHMMDWHF_CQcFUkhYVjNa8&part=snippet,contentDetails,statistics,status
 //&part=snippet,contentDetails,statistics,status
 //https://www.googleapis.com/youtube/v3/search?part=id&q=no+game+no+life&key={YOUR_API_KEY}
 
-var youtubeAPIKey = process.env.youtubeKey||"";
+var youtubeAPIKey = process.env.youtubeKey||nconf.get('youtubeAPIKey')||"";
 
 function youtubeAPIQuery(search, callback) {
 	console.log('API Key:',youtubeAPIKey);
